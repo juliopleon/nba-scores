@@ -57,6 +57,30 @@ def convert(currency1, currency2, amount):
     return converted_amount
 
 
-data = get_currencies()
-printer.pprint(data)
-rate = exchange_rate("USD", "CAD")
+def main():
+    currencies = get_currencies()
+
+    print("Welcome to the currency converter!")
+    print("List - lists the different currencies")
+    print("Convert - convert from one currency to another")
+    print("Rate - get the exchange rate of two currencies")
+    print()
+
+    while True:
+        command = input("Enter a command (q to quit): ").lower()
+
+        if command == "q":
+            break
+        elif command == "list":
+            print_currencies(currencies)
+        elif command == "convert":
+            currency1 = input("Enter a base currency: ").upper()
+            amount = input(f"Enter an amount in {currency1}")
+            currency2 = input("Enter a currency to convert to: ").upper()
+            convert(currency1, currency2, amount)
+        elif command == "rate":
+            currency1 = input("Enter a base currency: ").upper()
+            currency2 = input("Enter a currency to convert to: ").upper()
+            exchange_rate(currency1, currency2)
+        else:
+            print("Unrecognized command!")
