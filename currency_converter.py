@@ -84,3 +84,6 @@ def main():
             exchange_rate(currency1, currency2)
         else:
             print("Unrecognized command!")
+
+
+main()
